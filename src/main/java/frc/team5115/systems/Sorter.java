@@ -1,6 +1,7 @@
 package frc.team5115.systems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Spark;
 import frc.team5115.Constants;
 import frc.team5115.robot.Robot;
@@ -11,7 +12,6 @@ public class Sorter {
     DigitalInput desired;
     DigitalInput neutral;
     DigitalInput undesired;
-
 
 
     public Sorter(){
@@ -33,6 +33,23 @@ public class Sorter {
     }
     public boolean undesired(){
         return undesired.get();
+    }
+
+    public int ballDesired(){
+        if(Robot.response.equals("red")){
+            if (Robot.DS.getAlliance() == DriverStation.Alliance.Red){
+                return 1;
+            } else {
+                return 2;
+            }
+        } else if(Robot.response.equals("blue")){
+            if (Robot.DS.getAlliance() == DriverStation.Alliance.Blue){
+                return 1;
+            } else {
+                return 2;
+            }
+        }
+       return 0;
     }
 
 

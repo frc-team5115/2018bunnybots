@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
         input = new InputLoop();
         IM = new IntakeManager();
         OM = new OutputManager();
+        SM = new SorterManager();
         DS = DriverStation.getInstance();
         udpclient = new UDPClient("10.51.15.32:", 8005);
         SmartDashboard.putNumber("Throttle", drive.throttle);
@@ -54,6 +55,7 @@ public class Robot extends TimedRobot {
         drive.setState(Drive.DRIVING);
         IM.setState(IntakeManager.IDLE);
         OM.setState(IntakeManager.STOP);
+        SM.setState(SorterManager.SCANNING);
         input.setState(InputLoop.INPUT);
     }
     public void disabledInit() {

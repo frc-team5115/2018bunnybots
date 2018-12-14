@@ -15,6 +15,7 @@ public class InputLoop extends StateMachineBase{
     protected void updateChildren(){
         Robot.IM.update();
         Robot.OM.update();
+        Robot.SM.update();
     }
 
     public void update(){
@@ -22,6 +23,7 @@ public class InputLoop extends StateMachineBase{
             case STOP:
                 Robot.IM.setState(IntakeManager.STOP);
                 Robot.OM.setState(OutputManager.STOP);
+                Robot.SM.setState(SorterManager.STOP);
                 Robot.launcher.loose();
                 updateChildren();
                 break;
